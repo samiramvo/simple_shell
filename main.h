@@ -29,7 +29,7 @@ typedef struct data_sh
 {
 	char **av;
 	char **args;
-	char *inp;
+	char *input;
 	int stat;
 	int count;
 	char **_environ;
