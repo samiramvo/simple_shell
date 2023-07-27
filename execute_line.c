@@ -14,7 +14,7 @@ int execute_line(datash *data)
 	if (data->args[0] == NULL)
 		return (1);
 
-	builtin = get_builtins(datash->args[0]);
+	builtin = get_builtins(data->args[0]);
 
 	if (builtin != NULL)
 		return (builtin(data));

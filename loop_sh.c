@@ -58,7 +58,7 @@ void loop_sh(datash *data)
 			if (inp == NULL)
 				continue;
 
-			if (check_synthax_error(data, inp) == 1)
+			if (check_syntax_error(data, inp) == 1)
 			{
 				data->stat = 2;
 				free(inp);

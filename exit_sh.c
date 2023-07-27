@@ -18,7 +18,7 @@ int exit_sh(datash *data)
 		ustatus = _atoi(data->args[1]);
 		is_digit = _isdigit(data->args[1]);
 		str_len = _strlen(data->args[1]);
-		bignumber = usstatus > (unsigned int) INT MAX;
+		bignumber = ustatus > (unsigned int)INT_MAX;
 		if (!is_digit || str_len > 10 || bignumber)
 		{
 			get_error(data, 2);

@@ -38,7 +38,7 @@ char *copy_inf(char *name, char *val)
 void set_env(char *name, char *value, datash *data)
 {
 	int item;
-	char variable_env, *name_env;
+	char *variable_env, *name_env;
 
 	for (item = 0; data->_environ[item]; item++)
 	{
@@ -54,7 +54,7 @@ void set_env(char *name, char *value, datash *data)
 		free(variable_env);
 	}
 
-	data->_environ = _reallocdp(data->_environ, item, sizeof(char *) * (i + 2));
+	data->_environ = _reallocdp(data->_environ, item, sizeof(char *) * (item + 2));
 	data->_environ[item] = copy_inf(name, value);
 	data->_environ[item + 1] = NULL;
 }

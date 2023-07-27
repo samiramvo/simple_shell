@@ -30,16 +30,16 @@ extern char **environ;
  * @_environ: variable environnement
  * @pid: process ID
  */
-typedef struct data
+typedef struct data_sh
 {
 	char **av;
 	char **args;
 	char *input;
-	int status;
-	int counter;
+	int stat;
+	int count;
 	char **_environ;
 	char *pid;
-} data_shell;
+} datash;
 
 /**
  * struct sep_list_s -Builtin struct
@@ -90,7 +90,7 @@ typedef struct r_var_list
 typedef struct builtin_s
 {
 	char *name;
-	int (*f)(data_shell *datash);
+	int (*f)(datash *data);
 } builtin_t;
 
 /* LIST.c */
@@ -142,15 +142,15 @@ char *read_lines(int *value);
 /* split.c */
 char *swap_char(char *input, int bool);
 void add_nodes(sep_list **head_s, line_list **head_l, char *input);
-void go_next(sep_list **list_s, line_list **list_l, data_shell *datash);
-int split_commands(data_shell *datash, char *input);
+void go_next(sep_list **list_s, line_list **list_l, datash *data);
+int split_commands(datash *data, char *input);
 char **split_line(char *input);
 
 /* rep_var.c */
-void check_env(r_var **h, char *in, data_shell *data);
-int check_vars(r_var **h, char *in, char *st, data_shell *data);
+void check_env(r_var **h, char *in, datash *data);
+int check_vars(r_var **h, char *in, char *st, datash *data);
 char *replaced_input(r_var **head, char *input, char *new_input, int nlen);
-char *rep_var(char *input, data_shell *datash);
+char *rep_var(char *input, datash *data);
 
 /* getLine.c */
 void attr_line(char **lineptr, size_t *n, char *buffer, size_t len);
@@ -167,7 +167,7 @@ int check_error_cmd(char *dir, datash *data);
 int command_exec(datash *data);
 
 /* env.c */
-int comp_env(const char *name_env, const char *name)
+int comp_env(const char *name_env, const char *name);
 char *_getenv(const char *name, char **_environ);
 int _printenv(datash *data);
 
@@ -208,7 +208,7 @@ char *error_get_alias(char **args);
 char *error_env(datash *data);
 char *error_syntax(char **args);
 char *error_permission(char **args);
-char *error_path_126(data_shell *datash);
+char *error_path_126(datash *data);
 
 
 /* get_error.c */

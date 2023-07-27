@@ -11,7 +11,7 @@ int comp_env(const char *name_env, const char *name)
 {
 	int item;
 
-	for (item; name_env[item] != '='; item++)
+	for (item = 0; name_env[item] != '='; item++)
 	{
 		if (name_env[item] != name[item])
 		{

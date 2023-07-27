@@ -10,11 +10,11 @@ int (*get_builtins(char *command))(datash *)
 {
 	int i;
 	builtin_t builtin[] = {
-		{"env", _env },
+		{"env", _printenv },
 		{"exit", exit_sh},
-		{"setenv", setenv },
+		{"setenv", _setenv },
 		{"unsetenv", _unsetenv},
-		{"cd", cd_sh},
+		{"cd", cd_shell},
 		{"help", get_HELP},
 		{NULL, NULL}
 	};
@@ -23,5 +23,5 @@ int (*get_builtins(char *command))(datash *)
 		if (_strcmp(builtin[i].name, command) == 0)
 			break;
 	}
-	return (builtin[i].ftype);
+	return (builtin[i].f);
 }

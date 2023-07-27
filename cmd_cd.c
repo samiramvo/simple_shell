@@ -27,7 +27,7 @@ void cd_dot(datash *data)
 		free(cp_pwd);
 		return;
 	}
-	ok_pwd = cp_pwd;
+	cp_strtok_pwd = cp_pwd;
 	rev_string(cp_strtok_pwd);
 	cp_strtok_pwd = _strtok(cp_strtok_pwd, "/");
 	if (cp_strtok_pwd != NULL)

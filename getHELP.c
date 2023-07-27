@@ -9,19 +9,19 @@
 int get_HELP(datash *data)
 {
 	if (data->args[1] == 0)
-		aux_help_general();
+		general_help();
 	else if (_strcmp(data->args[1], "setenv") == 0)
-		help_setenv();
+		setenv_help();
 	else if (_strcmp(data->args[1], "env") == 0)
-		help_env();
+		env_help();
 	else if (_strcmp(data->args[1], "unsetenv") == 0)
-		help_unsetenv();
+		unsetenv_help();
 	else if (_strcmp(data->args[1], "help") == 0)
-		help();
+		help_help();
 	else if (_strcmp(data->args[1], "exit") == 0)
-		help_exit();
+		exit_help();
 	else if (_strcmp(data->args[1], "cd") == 0)
-		help_cd();
+		cd_help();
 	else if (_strcmp(data->args[1], "alias") == 0)
 		help_alias();
 	else

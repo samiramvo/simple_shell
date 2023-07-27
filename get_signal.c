@@ -8,5 +8,5 @@
 void get_signal(int signal)
 {
 	(void) signal;
-	write(STDOUT_FILENO, "\n^-^", 5)
+	write(STDOUT_FILENO, "\n^-^", 5);
 }
